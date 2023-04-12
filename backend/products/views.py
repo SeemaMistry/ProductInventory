@@ -16,4 +16,8 @@ def home(request):
     return render (request, 'index.html', context)
 
 def product(request):
-    return render (request, 'products.html')
+    # retrieve all the products
+    allProducts = Product.objects.all()
+    context = {'products': allProducts}
+
+    return render (request, 'products.html', context)
