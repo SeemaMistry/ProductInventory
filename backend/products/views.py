@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponseRedirect, reverse
 from products.models import Product
 
 # Create your views here.
@@ -21,3 +21,12 @@ def product(request):
     context = {'products': allProducts}
 
     return render (request, 'products.html', context)
+
+def product_delete(request, id):
+    product = Product.objects.get(id=id)
+    product.delete()
+
+    # return render(request, 'products.html')
+
+    return HttpResponseRedirect(reverse('product'))
+    
