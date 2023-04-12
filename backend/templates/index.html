@@ -40,14 +40,15 @@
 
     <div class="container my-3">
         <h2 class="text-center">Welcome to Simple Shop - Add a Product</h2> 
-        <form>
+        <form action="/" method="post">
+          {% csrf_token %}
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Product Name</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <label for="name" class="form-label">Product Name</label>
+              <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Description</label>
-              <textarea class="form-control" name="" id="" cols="30" rows="10"></textarea>
+              <label for="desc" class="form-label">Description</label>
+              <textarea class="form-control" name="desc" id="desc" cols="30" rows="10"></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
